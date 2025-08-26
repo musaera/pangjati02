@@ -14,7 +14,270 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      arsip: {
+        Row: {
+          created_at: string | null
+          description: string | null
+          filename: string | null
+          id: number
+          uploaded_by: string | null
+          url: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          filename?: string | null
+          id?: number
+          uploaded_by?: string | null
+          url?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          filename?: string | null
+          id?: number
+          uploaded_by?: string | null
+          url?: string | null
+        }
+        Relationships: []
+      }
+      clubs: {
+        Row: {
+          created_at: string | null
+          description: string | null
+          id: number
+          name: string
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          id?: number
+          name: string
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          id?: number
+          name?: string
+        }
+        Relationships: []
+      }
+      cohorts: {
+        Row: {
+          club_id: number | null
+          created_at: string | null
+          id: number
+          name: string
+          year: number | null
+        }
+        Insert: {
+          club_id?: number | null
+          created_at?: string | null
+          id?: number
+          name: string
+          year?: number | null
+        }
+        Update: {
+          club_id?: number | null
+          created_at?: string | null
+          id?: number
+          name?: string
+          year?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "cohorts_club_id_fkey"
+            columns: ["club_id"]
+            isOneToOne: false
+            referencedRelation: "clubs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      donations: {
+        Row: {
+          amount: number | null
+          created_at: string | null
+          id: number
+          method: string | null
+          name: string | null
+          note: string | null
+        }
+        Insert: {
+          amount?: number | null
+          created_at?: string | null
+          id?: number
+          method?: string | null
+          name?: string | null
+          note?: string | null
+        }
+        Update: {
+          amount?: number | null
+          created_at?: string | null
+          id?: number
+          method?: string | null
+          name?: string | null
+          note?: string | null
+        }
+        Relationships: []
+      }
+      events: {
+        Row: {
+          created_at: string | null
+          date: string
+          description: string | null
+          id: number
+          image_url: string | null
+          location: string | null
+          title: string
+        }
+        Insert: {
+          created_at?: string | null
+          date: string
+          description?: string | null
+          id?: number
+          image_url?: string | null
+          location?: string | null
+          title: string
+        }
+        Update: {
+          created_at?: string | null
+          date?: string
+          description?: string | null
+          id?: number
+          image_url?: string | null
+          location?: string | null
+          title?: string
+        }
+        Relationships: []
+      }
+      jadwal: {
+        Row: {
+          created_at: string | null
+          id: number
+          keterangan: string | null
+          nama: string
+          tanggal: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: number
+          keterangan?: string | null
+          nama: string
+          tanggal: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: number
+          keterangan?: string | null
+          nama?: string
+          tanggal?: string
+        }
+        Relationships: []
+      }
+      members: {
+        Row: {
+          biodata: string | null
+          cohort_id: number | null
+          created_at: string | null
+          id: number
+          name: string
+          phone: string | null
+          photo_url: string | null
+        }
+        Insert: {
+          biodata?: string | null
+          cohort_id?: number | null
+          created_at?: string | null
+          id?: number
+          name: string
+          phone?: string | null
+          photo_url?: string | null
+        }
+        Update: {
+          biodata?: string | null
+          cohort_id?: number | null
+          created_at?: string | null
+          id?: number
+          name?: string
+          phone?: string | null
+          photo_url?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "members_cohort_id_fkey"
+            columns: ["cohort_id"]
+            isOneToOne: false
+            referencedRelation: "cohorts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      pengurus: {
+        Row: {
+          created_at: string | null
+          foto_url: string | null
+          id: number
+          jabatan: string | null
+          motto: string | null
+          nama: string
+          phone: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          foto_url?: string | null
+          id?: number
+          jabatan?: string | null
+          motto?: string | null
+          nama: string
+          phone?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          foto_url?: string | null
+          id?: number
+          jabatan?: string | null
+          motto?: string | null
+          nama?: string
+          phone?: string | null
+        }
+        Relationships: []
+      }
+      registrations: {
+        Row: {
+          created_at: string | null
+          email: string | null
+          event_id: number | null
+          id: number
+          name: string
+          phone: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email?: string | null
+          event_id?: number | null
+          id?: number
+          name: string
+          phone?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string | null
+          event_id?: number | null
+          id?: number
+          name?: string
+          phone?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "registrations_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "events"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never

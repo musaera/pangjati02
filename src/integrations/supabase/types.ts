@@ -124,30 +124,24 @@ export type Database = {
       events: {
         Row: {
           created_at: string | null
-          date: string
-          description: string | null
           id: number
-          image_url: string | null
-          location: string | null
-          title: string
+          lokasi: string
+          nama: string
+          tanggal: string
         }
         Insert: {
           created_at?: string | null
-          date: string
-          description?: string | null
           id?: number
-          image_url?: string | null
-          location?: string | null
-          title: string
+          lokasi: string
+          nama: string
+          tanggal: string
         }
         Update: {
           created_at?: string | null
-          date?: string
-          description?: string | null
           id?: number
-          image_url?: string | null
-          location?: string | null
-          title?: string
+          lokasi?: string
+          nama?: string
+          tanggal?: string
         }
         Relationships: []
       }
@@ -155,23 +149,23 @@ export type Database = {
         Row: {
           created_at: string | null
           id: number
-          keterangan: string | null
-          nama: string
-          tanggal: string
+          kegiatan: string
+          tempat: string
+          waktu: string
         }
         Insert: {
           created_at?: string | null
           id?: number
-          keterangan?: string | null
-          nama: string
-          tanggal: string
+          kegiatan: string
+          tempat: string
+          waktu: string
         }
         Update: {
           created_at?: string | null
           id?: number
-          keterangan?: string | null
-          nama?: string
-          tanggal?: string
+          kegiatan?: string
+          tempat?: string
+          waktu?: string
         }
         Relationships: []
       }
@@ -216,30 +210,24 @@ export type Database = {
       pengurus: {
         Row: {
           created_at: string | null
-          foto_url: string | null
           id: number
-          jabatan: string | null
-          motto: string | null
+          jabatan: string
+          kontak: string
           nama: string
-          phone: string | null
         }
         Insert: {
           created_at?: string | null
-          foto_url?: string | null
           id?: number
-          jabatan?: string | null
-          motto?: string | null
+          jabatan: string
+          kontak: string
           nama: string
-          phone?: string | null
         }
         Update: {
           created_at?: string | null
-          foto_url?: string | null
           id?: number
-          jabatan?: string | null
-          motto?: string | null
+          jabatan?: string
+          kontak?: string
           nama?: string
-          phone?: string | null
         }
         Relationships: []
       }
@@ -268,15 +256,7 @@ export type Database = {
           name?: string
           phone?: string | null
         }
-        Relationships: [
-          {
-            foreignKeyName: "registrations_event_id_fkey"
-            columns: ["event_id"]
-            isOneToOne: false
-            referencedRelation: "events"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
     }
     Views: {

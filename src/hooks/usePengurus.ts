@@ -6,10 +6,8 @@ export interface Pengurus {
   id: number;
   nama: string;
   jabatan: string;
-  phone: string;
+  kontak: string;
   created_at?: string;
-  foto_url?: string;
-  motto?: string;
 }
 
 export const usePengurus = () => {

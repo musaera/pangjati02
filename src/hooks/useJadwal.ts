@@ -4,9 +4,9 @@ import { useToast } from "@/hooks/use-toast";
 
 export interface Jadwal {
   id: number;
-  nama: string;
-  tanggal: string;
-  keterangan?: string;
+  kegiatan: string;
+  waktu: string;
+  tempat: string;
   created_at?: string;
 }
 
@@ -20,7 +20,7 @@ export const useJadwal = () => {
       const { data, error } = await supabase
         .from("jadwal")
         .select("*")
-        .order("tanggal", { ascending: true });
+        .order("waktu", { ascending: true });
 
       if (error) throw error;
       setJadwal(data || []);

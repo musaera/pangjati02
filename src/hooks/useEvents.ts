@@ -4,12 +4,10 @@ import { useToast } from "@/hooks/use-toast";
 
 export interface Event {
   id: number;
-  title: string;
-  date: string;
-  location: string;
+  nama: string;
+  tanggal: string;
+  lokasi: string;
   created_at?: string;
-  description?: string;
-  image_url?: string;
 }
 
 export const useEvents = () => {
@@ -22,7 +20,7 @@ export const useEvents = () => {
       const { data, error } = await supabase
         .from("events")
         .select("*")
-        .order("date", { ascending: true });
+        .order("tanggal", { ascending: true });
 
       if (error) throw error;
       setEvents(data || []);
